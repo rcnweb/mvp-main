@@ -1,0 +1,48 @@
+services:
+  api-principal:
+    container_name: api-principal
+    build:
+      context: ./api-principal  
+      dockerfile: Dockerfile     
+    image: api-principal-1.0
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+    restart: unless-stopped
+    networks:
+      - shared-network
+
+  sales-service:
+    container_name: sales-service
+    build:
+      context: ./sales-service  
+      dockerfile: Dockerfile     
+    image: sales-service-1.0
+    ports:
+      - "5500:5500"
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+    restart: unless-stopped
+    networks:
+      - shared-network
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend  
+      dockerfile: Dockerfile
+    image: frontend-1.0
+    ports:
+      - "80:80"  
+    networks:
+      - shared-network
+    depends_on:
+      - api-principal   # Define dependência das APIs
+      - sales-service   
+
+networks:
+  shared-network:
+    driver: bridge

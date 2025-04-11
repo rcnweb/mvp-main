@@ -1,0 +1,57 @@
+.carousel {
+    position: relative;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-title {
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+    cursor: default;
+    text-align: left;
+}
+
+.carousel-book-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    background: #fff;
+    box-shadow: 10px 3px 9px rgba(0, 0, 0, 0.4);
+}
+
+.book-title {
+    white-space: noWrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.book-authors {
+    white-space: noWrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.book-price {
+    font-weight: bold;
+    font-size: 18px;
+    cursor: default;
+    margin-top: 0;
+}
+
+.book-add-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
